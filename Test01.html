@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+		function main(){
+			
+			alert('환영합니다.')
+		};
+		
+	</script>
+	<style type="text/css">
+		.div {background-color: #d94a38; width: 120px; height: 50px;}	
+	</style>
+	<script>
+		function mOver(obj){ obj.innerHTML="Thank You"}
+		function mOut(obj){obj.innerHTML="Mouse Over Me"}
+	</script>
+</head>
+<body > <!--<body onload="main()"> body가 실행될때 자동으로 실행되는 메소드 onload -->
+<h1 onmouseover="style.color='red'" onmouseout="style.color='black'"> Mouse over this test</h1>
+<div class="div" onmouseover="mOver(this)" onmouseout="mOut(this)">mouse</div>
+<div id="digClock01"></div> <button onclick="test()">클릭</button>
+<button onclick="click_()">시작</button> <button onclick="end()">종료</button>
+<script>
+	var e; var cnt = 1;
+	function digClock() {
+		var today = new Date();
+		var day = today.getMonth() + 1 + "월 " + today.getDate() + "일 ";
+		var time = today.getHours() + "시 " + today.getMinutes() + "분 "
+				+ today.getSeconds() + "초";
+		document.getElementById("digClock01").innerHTML = day + time;
+		//e = setTimeout('digClock()', 1000); // setTimeout : 해당하는 함수를 1초마다 호출하겠습니다. 자기 자신에 대한 함수만 호출가능
+		
+	}
+	function click_(){
+		e=setInterval('digClock()',1000) //setInterval : e다른 함수도 사용 가능
+	}
+	function test() { console.log("클릭 클릭!!!!" + cnt++) }
+	function end() { clearInterval(e) } //clearTimeout(e) >>setTimeout에 관한 종료 내용
+	digClock();
+</script>
+<hr>
+	<p id="d1"></p> <p id="d2"></p> <p id="d3"></p>
+	<script>
+	var today = new Date();
+	document.getElementById("d1").innerHTML=today.getFullYear()+"년";
+	document.getElementById("d2").innerHTML=today.getMonth()+1+ "월"+today.getDate()+"일";
+	document.getElementById("d3").innerHTML=today.getHours()+"시"+today.getMinutes()+"분"+today.getSeconds()+"초";	
+	</script>
+
+
+<hr>
+	<script>
+	var data={'f0':100,'f1':200, 'f2':300};
+	data['f3']=400;	//배열 데이터 저장
+	data.f4=500;	//배열 데이터 저장
+	document.write(data.f0 + "<br>");  //'f0'키 데이터 조회
+	document.write(data.f1 + "<br>");  //'f1'키 데이터 조회
+	document.write(data['f2'] + "<br>");
+	document.write(data['f3'] + "<br>");
+	document.write(data['f4'] + "<br>");
+
+	</script>
+<hr>
+	<script>
+	var kdata = ["서울","부산",'청주','세종'];
+	function printArr(item,index){
+		document.write("배열 데이터["+ index + "] : " +item+"<br>")
+	}
+	kdata.forEach(printArr);
+	
+	</script>
+
+<hr>
+	<script>
+	var kdata = ["서울","부산"];
+	var p1 = kdata.unshift('청주','세종'); //앞쪽에 추가한다.
+	document.write("unshift 데이터 : " + p1 + "<p/>");
+	document.write("배열 데이터 : " + kdata + "<p/>");
+	document.write("<hr style='border-style: dashed;'>")
+	var p2 = kdata.shift();  //앞쪽에서 해당 값을 뺴네온다
+	document.write("shift 데이터 : " + p2 + "<p/>");
+	document.write("배열 데이터 : " + kdata + "<p/>");
+	</script>
+	
+<hr>
+
+	<script>
+	var kdata = ["서울","부산","대전","대구","광주"];
+	var city02=["대구","광주","인천"];
+	var p1 = kdata.push('청주','세종'); //뒤로 붙이겠다
+	document.write("push 데이터 : " + p1 + "<p/>");
+	document.write("배열 데이터 : " + kdata + "<p/>");
+	document.write("<hr style='border-style: dashed;'>")
+	var p2 = kdata.pop(); //마지막에 있는 데이터 값을 뺀다
+	document.write("pop 데이터 : " + p2 + "<p/>");
+	document.write("배열 데이터 : " + kdata + "<p/>");
+	</script>
+<hr>
+
+	<script>
+	var kdata=["서울","부산","대전","대구","광주","인천","수원"];
+	
+	var str1=kdata.slice(0,4);
+	var str2=kdata.slice(2,-1);
+	var str3=kdata.slice(-4,-2);
+	document.write("부분 배열 1 : "+str1 +"<p/>");
+	document.write("부분 배열 2 : "+str2 +"<p/>");
+	document.write("부분 배열 3 : "+str3 +"<p/>");
+	
+
+	</script>
+
+
+<hr>
+	<script>
+	var city01=["서울","부산","대전"]; //concat 다음것을 붙여주는 기능
+	var city02=["대구","광주","인천"];
+	var city03=["전주","부여","세종"];
+	var data1=city01.concat("수원", "오산");
+	var data2=city01.concat(city02);
+	var data3=city01.concat(city02,city03);
+	document.write("결과 1 : "+ data1+"<p/>");
+	document.write("결과 2 : "+ data2+"<p/>");
+	document.write("결과 3 : "+ data3+"<p/>");
+	
+	</script>
+
+	<hr>
+	<script type="text/javascript">
+	var city=["서울","부산","대전"];
+	var joindata1=city.join();	//join : 지정한 배열 사이에 들어가는 기능
+	var joindata2=city.join('-');
+	var joindata3=city.join(" 그리고 ");
+	document.write("기본 내용  : "+ city + "<p/>") //<p/> 열고 닫겠다. <p></p>를 합친 내용 결국   엔터 하나 들어간다.
+	document.write("조인결과 1 : "+ joindata1 +"<p/>");
+	document.write("조인결과 2 : "+ joindata2 +"<p/>");
+	document.write("조인결과 3 : "+ joindata3 +"<p/>");
+	
+	
+	</script>
+
+
+<hr>
+	<script type="text/javascript">
+		var arrdata = [];
+		function insertArr() {
+			var i = 0;
+			for (i = 0; i <= 99; i++) {
+				arrdata[i] = i + 1; // 1~100 저장
+				document.write(arrdata[i] + " "); // 데이터 출력
+			}
+			document.write("<p>배열 크기 : " + arrdata.length + "</p>");
+		}
+		function delDataArr() {
+			var i;
+			for (i = 0; i < arrdata.length; i++)
+				arrdata[i] = 0; // 배열 데이터를 0으로 초기화
+			selectArr();
+		}
+		function allDelArr() {
+			arrdata.length = 0; // 배열 초기화
+			selectArr();
+		}
+		function selectArr() {
+			var i;
+			for (i = 0; i < arrdata.length; i++)
+				document.write(arrdata[i] + " "); // 데이터 조회
+			document.write("<p> 배열 크기 : " + arrdata.length + "</p>");
+			document.write("<a href='Test01.html'>돌아가기</a>");
+		}
+		insertArr(); // 배열 데이터 생성 함수 호출
+	</script>
+
+
+	<button type="button" onclick="delDataArr()">배열 데이터 초기화</button>
+	<button type="button" onclick="allDelArr()">배열 데이터 삭제</button>
+	<hr>
+	<script type="text/javascript">
+		var city = [ "Seoul", "Busan", "Incheon" ]; //배열 리터럴
+		city[3]
+		function printArr() {
+			var i;
+			for (i = 0; i < city.length; i++) {
+				document.write("배열 데이터[" + i + "] = " + city[i] + "<br>");
+			}
+		}
+		printArr();
+	</script>
+
+</body>
+</html>

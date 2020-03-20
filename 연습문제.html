@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+/* 화살표 */
+.img_Arrow {
+	width: 60px;
+	height: 100px;
+}
+/* 센터 그림 */
+#image {
+	width: 350px;
+	height: 550px;
+}
+
+</style>
+<script>
+	var e;
+	var x = 1;
+	function start() {
+		var today = new Date();
+		x = (today.getSeconds()) % 8 + 1;
+		console.log(x);
+		document.getElementById("image").src = "resources/images/최근상품0" + x
+				+ ".jpg";
+		e = setTimeout('start()', 1000);
+	}
+
+	function next() {
+		if (x > 7) {
+			x = 1;
+		} else {
+			x++;
+		}
+		console.log(x);
+		document.getElementById("image").src = "resources/images/최근상품0" + x
+				+ ".jpg";
+	}
+
+	function prev() {
+		if (x < 2) {
+			x = 8;
+		} else {
+			x--;
+		}
+		console.log(x);
+		document.getElementById("image").src = "resources/images/최근상품0" + x
+				+ ".jpg";
+	}
+	
+	function mOn(){
+		e = clearTimeout(e);
+	}
+	function mOut(){
+		start();
+	}
+	
+	
+</script>
+
+</head>
+<body onload="start()">
+	<table>
+		<tr>
+			<th><img class="img_Arrow" src="resources/images/왼쪽화살표.jpg"
+				onclick="prev()" onmouseover="mOn()" onmouseout="mOut()"></th>
+			<th><img id="image" src="resources/images/최근상품01.jpg" onmouseover="mOn()" onmouseout="mOut()"></th>
+			<th><img class="img_Arrow" src="resources/images/오른쪽화살표.jpg"
+				onclick="next()" onmouseover="mOn()" onmouseout="mOut()"></th>
+		</tr>
+	</table>
+</body>
+</html>

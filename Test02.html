@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<script>
+	var img;
+	function add(){
+		img = document.createElement('img'); //태그 만드는 방법
+		//img.src = 'resources/images/test1.jpg'; img.width = 100;
+		//img.height = 122;
+		//document.body.appendChild(img); //body에 appendChild(추가 하겠다)
+		
+		img.setAttribute('src','html5.jpg');
+		img.setAttribute('width',100);
+		img.setAttribute('height',122);
+		//document.body.appendChild(img);
+		document.getElementById('test').appendChild(img); //해당하는 아이디 얻어와서 추가할수도 있다.		
+	}
+	function remove(){
+		//document.body.removeChild(img);
+		document.getElementById('test').removeChild(img);
+	}
+	</script>
+<script type="text/javascript">
+	function insertOpt(){
+		var insert = document.getElementById("insert");
+		var arr = ['야구','축구','배구','족구'];
+		for(var i=0;i<arr.length;i++){
+		   var opt = document.createElement("option");
+		   opt.value=arr[i]; opt.innerHTML=arr[i]; insert.appendChild(opt);
+		}
+	}
+</script>
+
+</head> <body onload="insertOpt()">
+	    <select id="insert"></select>
+<hr>
+	<p id="test">test</p>
+	<a href="#" onclick="add()">[이미지 추가]</a>
+	<a href="#" onclick="remove()">[이미지 삭제]</a>
+
+</body>
+</html>

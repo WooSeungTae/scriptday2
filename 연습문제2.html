@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style type="text/css">
+table {
+	border-color :gray;
+	margin:0 auto;
+	
+}
+
+img{
+ 	border-color : transparent;
+	width : 120px;
+	height: 150px;
+
+}
+#image{
+	width : 120px;
+	height: 150px;
+}
+
+aside{
+	position: absolute;
+	right:50px;
+	top:10px;
+	display: flex; flex-flow: column;
+}
+
+.aside_first {
+	order:1;
+	text-align : center;
+	background-color: pink;
+	width:120px;
+	height: 100;
+}
+</style>
+
+
+</head>
+<body>
+
+	<script type="text/javascript">
+	document.write("<table border='2'>");
+	var x,y;
+	var a=0;
+	b=1;
+	for(x=1;x<3;x++){
+		document.write("<tr>")
+		for(y=1+a; y<5+a; y++){
+			document.write("<th><img id='image' src='resources/images/최근상품0" + y + ".jpg' onclick='click_image(this)'></th>");
+		}a=4;
+		document.write("</tr>")
+	}
+	document.write("</table>")	
+	</script>
+	
+	<script>
+	function make(){
+		var x;
+		var img = ["img1","img2","img3","img4","img5"];
+		for(x=0;x<img.length;x++){
+			img[x] = document.createElement('img'+x);			
+		}
+	}
+	function click_image(obj){
+		if(b==6) b=1;
+		document.getElementById('img'+b).src=obj.src;
+		b++;
+		
+		
+	}
+	
+	</script>
+	
+	
+	
+	
+	<aside>
+	<article class="aside_first">목록이<br> 없습니다.</article>
+	<img id="img1"  style="order: 2" border="1">
+	<img id="img2"  style="order: 3" border="1">
+	<img id="img3"  style="order: 4" border="1">
+	<img id="img4"  style="order: 5" border="1">
+	<img id="img5"  style="order: 6" border="1" >
+	
+	</aside>
+
+</body>
+</html>
